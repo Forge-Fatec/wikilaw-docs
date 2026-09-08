@@ -12,9 +12,9 @@ The main project repository can be accessed here:
 
 WikiLaw is a legal information platform developed as part of the FATEC project, focused on providing accessible and reliable access to legal information such as:
 
-- Jurisprudence
-- Legal precedents
-- Legal doctrine
+* Jurisprudence
+* Legal precedents
+* Legal doctrine
 
 This repository is dedicated specifically to the **documentation and organizational materials** of the project.
 
@@ -26,32 +26,34 @@ The WikiLaw team follows **Agile development practices using Scrum**.
 
 The project is organized around:
 
-- Sprints
-- User Stories
-- Tasks
-- Acceptance Criteria
-- Sprint Planning
-- Daily Meetings
-- Sprint Reviews
-- Retrospectives
+* Sprints
+* User Stories
+* Tasks
+* Acceptance Criteria
+* Sprint Planning
+* Daily Meetings
+* Sprint Reviews
+* Retrospectives
 
 All team members are expected to follow the agreed Scrum workflow and keep project documentation up to date.
+
+### Weekly Workload
+
+Each team member is expected to dedicate **10 hours per week** to the WikiLaw project.
+
+These hours may be distributed according to the team's sprint planning and the member's assigned responsibilities.
 
 ---
 
 ## ⏱️ Work Schedule
 
-Each team member is expected to dedicate **10 hours per week** to the WikiLaw project.
-
-### Working Days
-
 Project activities are carried out exclusively on **business days**.
 
 The team does **not** work on:
 
-- Saturdays
-- Sundays
-- Public holidays
+* Saturdays
+* Sundays
+* Public holidays
 
 Team members are not expected to perform project activities during weekends or public holidays.
 
@@ -65,8 +67,8 @@ Project meetings will take place **only during the evening period**, preferably 
 
 Meetings may take place through:
 
-- **Discord** — for remote meetings and collaboration.
-- **FATEC classrooms** — for in-person meetings during scheduled classes.
+* **Discord** — for remote meetings and collaboration.
+* **FATEC classrooms** — for in-person meetings during scheduled classes.
 
 Meetings outside the established evening/class schedule should not be expected from team members unless previously agreed upon by the entire team.
 
@@ -80,21 +82,21 @@ Meetings outside the established evening/class schedule should not be expected f
 
 It should be used for:
 
-- General communication
-- Quick questions
-- Notifications
-- Task coordination
-- Availability updates
-- Important announcements
+* General communication
+* Quick questions
+* Notifications
+* Task coordination
+* Availability updates
+* Important announcements
 
 ### Discord
 
 **Discord** is primarily used for:
 
-- Scrum meetings
-- Remote team meetings
-- Voice communication
-- Collaborative work sessions
+* Scrum meetings
+* Remote team meetings
+* Voice communication
+* Collaborative work sessions
 
 ### College Classrooms
 
@@ -112,10 +114,10 @@ If a member knows that they will be **temporarily idle or unavailable**, they sh
 
 Examples include:
 
-- Academic workload
-- Personal commitments
-- Temporary lack of availability
-- Other previously known circumstances that prevent project participation
+* Academic workload
+* Personal commitments
+* Temporary lack of availability
+* Other previously known circumstances that prevent project participation
 
 ### Prior Notice
 
@@ -123,7 +125,7 @@ A member who **properly communicates their temporary unavailability in the group
 
 The purpose of this rule is to encourage transparency and communication rather than penalize legitimate periods of unavailability.
 
-However, members are still expected to:
+Members should:
 
 1. Notify the team as soon as they know they will be unavailable.
 2. Clearly communicate the expected period of inactivity when possible.
@@ -131,6 +133,98 @@ However, members are still expected to:
 4. Resume their responsibilities when they become available again.
 
 Failure to communicate prolonged inactivity may be considered when applying the team's permanence rules.
+
+---
+
+## 🌿 Git Branching Strategy
+
+The WikiLaw project follows a simple branch-based workflow centered around two permanent branches and temporary feature branches.
+
+### Main Branches
+
+| Branch    | Purpose                                                          |
+| --------- | ---------------------------------------------------------------- |
+| `main`    | Production-ready code.                                           |
+| `develop` | Main development branch for the current project work and sprint. |
+
+### Feature Branches
+
+All new features and development tasks must originate from the `develop` branch.
+
+The workflow is:
+
+```text
+main
+  │
+  └── develop
+        │
+        ├── feature/task-1
+        │
+        ├── feature/task-2
+        │
+        └── feature/task-3
+```
+
+Once a feature or task is completed, its branch must be merged back into `develop`.
+
+```text
+feature/task
+      │
+      ▼
+   develop
+```
+
+### Sprint Completion
+
+At the end of each sprint, the completed and validated work in `develop` is merged into `main`.
+
+The deployment is then performed from `main`.
+
+```text
+feature/*
+    │
+    ▼
+ develop
+    │
+    │  End of Sprint
+    ▼
+  main
+    │
+    ▼
+ Deploy
+```
+
+### Branch Rules
+
+1. `main` must always contain production-ready code.
+2. `develop` is the primary integration branch during development.
+3. Feature branches must be created from `develop`.
+4. Feature branches must be merged into `develop` after completion.
+5. Features should not be merged directly into `main`.
+6. At the end of the sprint, `develop` is merged into `main`.
+7. Deployment is performed after the sprint merge into `main`.
+8. Feature branches should be removed after they have been successfully merged.
+
+### Example
+
+```bash
+git checkout develop
+git pull
+
+git checkout -b feature/user-search
+```
+
+After completing the feature:
+
+```text
+feature/user-search → develop
+```
+
+At the end of the sprint:
+
+```text
+develop → main → deploy
+```
 
 ---
 
@@ -153,11 +247,7 @@ The `action` must be written in English and clearly describe what was done.
 ```
 
 ```text
-(docs: update project documentation)
-```
-
-```text
-(chore: organize repository structure)
+(feat: add jurisprudence search)
 ```
 
 ```text
@@ -168,16 +258,20 @@ The `action` must be written in English and clearly describe what was done.
 (refactor: reorganize documentation)
 ```
 
+```text
+(chore: update project structure)
+```
+
 ### Rules
 
 1. Commit messages must be written **exclusively in English**.
 2. The commit must follow the `(tag: action)` format.
 3. The action must be concise and describe the actual change.
 4. Avoid vague messages such as:
-   - `(update: stuff)`
-   - `(fix: things)`
-   - `(change: files)`
 
+   * `(update: stuff)`
+   * `(fix: things)`
+   * `(change: files)`
 5. Each commit should represent a meaningful change whenever possible.
 
 ---
@@ -190,13 +284,13 @@ A strike may be assigned when a member repeatedly fails to comply with establish
 
 Examples may include:
 
-- Repeatedly failing to complete assigned tasks without justification.
-- Consistently failing to participate in Scrum activities.
-- Ignoring established repository or documentation rules.
-- Repeatedly submitting work that does not follow agreed standards.
-- Failing to meet agreed project responsibilities.
-- Prolonged inactivity without notifying the team.
-- Other actions that significantly affect the team's progress.
+* Repeatedly failing to complete assigned tasks without justification.
+* Consistently failing to participate in Scrum activities.
+* Ignoring established repository or documentation rules.
+* Repeatedly submitting work that does not follow agreed standards.
+* Failing to meet agreed project responsibilities.
+* Prolonged inactivity without notifying the team.
+* Other actions that significantly affect the team's progress.
 
 ### Three-Strike System
 
@@ -220,16 +314,16 @@ The purpose of this rule is not to punish legitimate difficulties, but to ensure
 
 Every team member is responsible for:
 
-- Dedicating **10 hours per week** to the project.
-- Working only during established business days.
-- Following the project's Scrum workflow.
-- Completing assigned tasks within the agreed sprint.
-- Keeping documentation updated when necessary.
-- Following repository and commit conventions.
-- Participating actively in scheduled meetings.
-- Communicating blockers or difficulties to the team.
-- Informing the WhatsApp group about periods of temporary unavailability.
-- Contributing to the overall progress of the project.
+* Dedicating **10 hours per week** to the project.
+* Working only during established business days.
+* Following the project's Scrum workflow.
+* Completing assigned tasks within the agreed sprint.
+* Keeping documentation updated when necessary.
+* Following repository and commit conventions.
+* Participating actively in scheduled meetings.
+* Communicating blockers or difficulties to the team.
+* Informing the WhatsApp group about periods of temporary unavailability.
+* Contributing to the overall progress of the project.
 
 ---
 
@@ -237,13 +331,13 @@ Every team member is responsible for:
 
 This repository should contain project-related documentation such as:
 
-- Scrum documentation
-- Team rules
-- Project decisions
-- Meeting records
-- Technical documentation
-- Process documentation
-- Other documents relevant to the development of WikiLaw
+* Scrum documentation
+* Team rules
+* Project decisions
+* Meeting records
+* Technical documentation
+* Process documentation
+* Other documents relevant to the development of WikiLaw
 
 The main source code and application development are maintained in the **[WikiLaw Main Repository](https://github.com/Forge-Fatec/wikilaw)**.
 
@@ -251,8 +345,8 @@ The main source code and application development are maintained in the **[WikiLa
 
 ## 🔗 Repositories
 
-- **Main Project:** https://github.com/Forge-Fatec/wikilaw
-- **Documentation:** This repository
+* **Main Project:** https://github.com/Forge-Fatec/wikilaw
+* **Documentation:** This repository
 
 ---
 
